@@ -1,7 +1,8 @@
 package main
 
 func main() {
-	db := getDB()
+	//user, password, database name
+	db := getDB("postgres", "root", "pruebaReceta")
 	defer db.Close()
 	initializeRoutes(db)
 }

@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"errors"
+	"fmt"
 )
 
 type recipe struct {
@@ -199,6 +200,7 @@ func getRecipesDB(start int, count int, db *sql.DB) ([]recipe, error) {
 	stmt, err := db.Prepare(instruction)
 	defer stmt.Close()
 	if err != nil {
+		fmt.Println(err.Error())
 		return nil, err
 	}
 	var idRecipe int
