@@ -15,7 +15,6 @@ go build
 
 # router-app
 ```
-npm install
 npm run dev
 ```
 
