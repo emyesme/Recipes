@@ -19,14 +19,12 @@ func getDB(user string, pass string, database string) *sql.DB {
 }
 
 func initDB(db *sql.DB) {
-	instruction := `DROP TABLE IF EXISTS recipe CASCADE;
-					DROP TABLE IF EXISTS ingredients CASCADE;
-					CREATE TABLE recipe(
+	instruction := `CREATE TABLE IF NOT EXISTS recipe(
 						idRecipe SERIAL NOT NULL,
 						title TEXT,
 						description TEXT,
 						PRIMARY KEY(idRecipe));
-					CREATE TABLE ingredients(
+					CREATE TABLE IF NOT EXISTS ingredients(
 						idIngredient SERIAL NOT NULL,
 						idRecipe int NOT NULL,
 						name TEXT,
